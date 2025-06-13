@@ -1,0 +1,122 @@
+// prisma/schema.prisma
+datasource db {
+  provider  = "mongodb"
+  url  	    = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+// ############################ All Enums 
+
+enum UserRole {
+  ADMIN
+  COACHE
+  PATIENT
+  USER
+}
+
+// ############################ End Of Enums
+
+model User {
+  id                        String       @id @default(cuid()) @map("_id")
+  profileImage              String?
+  firstName                 String?
+  middleName                String?
+  lastName                  String?
+  username                  String
+  gender                    String?
+  dateOfBirth               String?
+  telePhone                 String?
+
+  profession                String?
+  bio                       String?
+  // Address
+  address                   String?
+  cityName                  String?
+  country                   String?
+  pinCode                   String?
+
+  // Account Information
+  email                   String?      @unique
+  emailVerified           DateTime?
+  password                String?
+  role                    UserRole     @default(USER)
+  deviceId                String?
+
+  // Identification 
+  typeOfIdentificationCard          String?
+  identificationCardNumber          String?
+  identificationFile                String?
+
+  accounts                          Account[]
+
+  isTwoFactorEnabled Boolean        @default(false)
+  twoFactorConfirmation             TwoFactorConfirmation?
+  
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Account {
+  id                 String        @id @default(cuid()) @map("_id")
+  userId             String
+  type               String
+  provider           String
+  providerAccountId  String
+  refresh_token      String?  
+  access_token       String?  
+  expires_at         Int?
+  token_type         String?
+  scope              String?
+  id_token           String?  
+  session_state      String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+}
+
+model VerificationToken {
+  id                String    @id @default(cuid()) @map("_id")
+  email             String
+  token             String    @unique
+  expires           DateTime
+
+  @@unique([email, token])
+}
+
+model PasswordResetToken {
+  id                String    @id @default(cuid()) @map("_id")
+  email             String
+  token             String    @unique
+  expires           DateTime
+
+  @@unique([email, token])
+}
+
+model TwoFactorToken {
+  id                String        @id @default(cuid()) @map("_id")
+  email             String
+  token             String        @unique
+  expires           DateTime
+
+  @@unique([email, token])
+}
+
+model TwoFactorConfirmation {
+  id                String        @id @default(cuid()) @map("_id")
+  email             String  
+
+  userId            String
+  user              User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId])
+}
+  
+model SearchQuery {
+      id                           String    @id @default(cuid()) @map("_id")
+      query String
+}
+
