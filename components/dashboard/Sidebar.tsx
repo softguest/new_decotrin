@@ -5,6 +5,7 @@ import { Menu, X } from 'lucide-react'
 import Link from 'next/link'
 import { cn } from '@/lib/utils'
 import { FaBookOpen, FaCog, FaHome, FaRobot, FaUserCircle, FaUserMd } from 'react-icons/fa'
+import SearchBar from './SearchBar'
 
 export default function Sidebar() {
   const [isOpen, setIsOpen] = useState(false)
@@ -30,7 +31,9 @@ export default function Sidebar() {
 
       <nav className="flex flex-col h-full p-4 space-y-6">
         <h2 className="text-xl text font-bold mb-4">Dashboard</h2>
-
+        <div className='md:hidden'>
+          <SearchBar />
+        </div>
         <Link href="/dashboard" className="flex items-center space-x-2 hover:text-indigo-600">
           <FaHome />
           <span>Home</span>
