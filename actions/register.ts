@@ -42,5 +42,5 @@ export const register = async (values: z.infer<typeof RegisterSchema>) => {
     verificationToken.token,
   );
 
-  return { success: "Your account has been created seccussfully. To activate your account, contact +237 6 73 58 99 99, on Whatsapp" };
+  return { success: "Your account has been created seccussfully." };
 };

@@ -39,9 +39,9 @@ export const login = async (
     return { error: "Email does not exist!" }
   }
 
-  if (existingUser.deviceId && existingUser.deviceId !== deviceId) {
-    return { error: "Access denied. use thesame browser you registered with." };
-  }
+  // if (existingUser.deviceId && existingUser.deviceId !== deviceId) {
+  //   return { error: "Access denied. use thesame browser you registered with." };
+  // }
 
   if (!existingUser.emailVerified) {
     const verificationToken = await generateVerificationToken(
@@ -53,7 +53,7 @@ export const login = async (
       verificationToken.token,
     );
 
-    return { success: "Your account has been created but still to be activated. To activate your account, contact +237 6 73 58 99 99, on Whatsapp!" };
+    return { success: "Your account has been created but still to be activated." };
   }
 
   if (existingUser.isTwoFactorEnabled && existingUser.email) {
