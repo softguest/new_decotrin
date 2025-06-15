@@ -6,13 +6,15 @@ import { FaArrowRight, FaCircle } from "react-icons/fa";
 
 type User = {
   id: string;
-  name?: string;
+  firstName?: string;
+  lastName?: string;
   email: string;
   role: "ADMIN" | "COACHE" | "PATIENT";
   profileImage: string;
   profession: string;
   Location:   string;
   telephone:  string;
+  country:    string;
   address:    string;
   bio:        string;
 };
@@ -46,7 +48,7 @@ const ExpertList = () => {
   const filteredUsers = users.filter((user) => {
     const matchesSearch =
       user.email.toLowerCase().includes(search.toLowerCase()) ||
-      user.name?.toLowerCase().includes(search.toLowerCase());
+      user.firstName?.toLowerCase().includes(search.toLowerCase());
     const matchesRole = roleFilter === "ALL" || user.role === roleFilter;
     return matchesSearch && matchesRole;
   });
@@ -69,7 +71,7 @@ const ExpertList = () => {
                 <div>
                   <img
                     src={profile.profileImage}
-                    alt={profile.name}
+                    alt={profile.firstName}
                     className="w-16 h-16 rounded-full object-cover mb-2"
                   />
                 </div>
@@ -77,13 +79,12 @@ const ExpertList = () => {
                   <FaCircle color="#f7f7f7" size={38}/>
                 </div>
               </div>
-              <h3 className="text-md font-semibold">{profile.name}</h3>
+              <h3 className="text-md font-semibold">{profile.firstName} {profile.lastName}</h3>
               <p className="text-sm opacity-80">{profile.role}</p>
               <p className="text-xs opacity-60">{profile.email}</p>
               <div className="flex justify-between border-t-2 pt-2 mt-1">
-                  <div className="text-[12px]">WhatsApp</div>
-                  <div className="text-[12px]">{profile.telephone}</div>
-
+                  <div className="text-[12px] flex justify-center items-center space-x-2"><div>Base:</div> <div><FaArrowRight /></div></div>
+                  <div className="text-[12px]">{profile?.country}</div>
               </div>
             </div>
           </Link>  
