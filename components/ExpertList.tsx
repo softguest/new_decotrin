@@ -81,7 +81,10 @@ const ExpertList = () => {
               </div>
               <h3 className="text-md font-semibold">{profile.firstName} {profile.lastName}</h3>
               <p className="text-sm opacity-80">{profile.role}</p>
-              <p className="text-xs opacity-60">{profile.email}</p>
+              <p className="text-xs opacity-60">
+                {/* {profile.email} */}
+               Email: *************
+              </p>
               <div className="flex justify-between border-t-2 pt-2 mt-1">
                   <div className="text-[12px] flex justify-center items-center space-x-2"><div>Base:</div> <div><FaArrowRight /></div></div>
                   <div className="text-[12px]">{profile?.country}</div>
