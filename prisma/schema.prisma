@@ -51,6 +51,7 @@ model User {
   identificationFile                String?
 
   accounts                          Account[]
+  article                           Article[]
 
   isTwoFactorEnabled Boolean        @default(false)
   twoFactorConfirmation             TwoFactorConfirmation?
@@ -59,6 +60,16 @@ model User {
   updatedAt DateTime @updatedAt
 }
 
+model Article {
+  id                 String      @id @default(cuid()) @map("_id")
+  image              String?
+  title              String
+  content            Json?
+  author             User?    @relation(fields: [authorId], references: [id])
+  authorId           String
+  createdAt          DateTime @default(now())
+}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
 model Account {
   id                 String        @id @default(cuid()) @map("_id")
   userId             String

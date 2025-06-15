@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { Menu, X } from 'lucide-react'
 import Link from 'next/link'
 import { cn } from '@/lib/utils'
-import { FaBookOpen, FaCog, FaHome, FaRobot, FaUserCircle, FaUserMd } from 'react-icons/fa'
+import { FaBookOpen, FaCog, FaCreativeCommons, FaHome, FaRobot, FaUserCircle, FaUserMd } from 'react-icons/fa'
 import SearchBar from './SearchBar'
 
 export default function Sidebar() {
@@ -57,6 +57,10 @@ export default function Sidebar() {
         <Link href="/dashboard/settings" className="flex items-center space-x-2 text-indigo-600 hover:text-indigo-600">
           <FaCog />
           <span>Settings</span>
+        </Link>
+        <Link href="/dashboard/articles/create" className="flex items-center space-x-2 hover:text-indigo-600">
+          <FaCreativeCommons />
+          <span>Create Article</span>
         </Link>
       </nav>
       </aside>

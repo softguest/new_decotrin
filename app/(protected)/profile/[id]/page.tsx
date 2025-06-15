@@ -9,7 +9,7 @@ type User = {
   name:         String
   email:        String
   image:         String
-
+  country:       String
   profession:    String
   Location:      String
   telephone:     String
@@ -74,7 +74,7 @@ const MyProfile = () => {
         <div className="mt-6 space-y-4">
           <div className='flex justify-between items-center border-b-4 py-2'>
             <h2 className="text-sm text-gray-600">📍 Location</h2>
-            <p className="text-[12px] md:text-lg">{user?.Location}</p>
+            <p className="text-[12px] md:text-lg">{user?.country}</p>
           </div>
 
           <div className='flex justify-between items-center border-b-4 py-2'>
