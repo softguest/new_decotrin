@@ -29,7 +29,7 @@ export async function POST(request: Request) {
     const geminiStream = await model.generateContentStream({
       contents: geminiPrompt,
       generationConfig: {
-        temperature: 0.3,
+        temperature: 0.7,
       },
     }); 
 
