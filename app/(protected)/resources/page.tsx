@@ -1,35 +1,11 @@
-import { time } from 'console';
-import { on } from 'events';
-import { has } from 'markdown-it/lib/common/utils.mjs';
 import Image from 'next/image';
-import { it, after, only } from 'node:test';
 import React from 'react'
 
 const slides = [
   {
     heading: 'Why is forgiveness so important to emotional recovery from trauma and how do you get there?',
-    description:'Forgiveness is an essential component of being able to attain mental, relational, physical and spiritual well-being. It means forgiving yourself and forgiving those who have caused your trauma, thereby creating space for more positive thoughts.
-
-Forgiveness can be both a psychological and a spiritual journey.
-
-People who are not able to forgive remain hostile. They continue to ruminate about their pain and are unable to accept, and eventually, let go of it. Research shows that after forgiveness, negative feelings decline and positive emotions take their place. Resolving anger, hurt, shame and fear generates positive emotions like empathy, understanding and compassion.
-
-In our work with children with attachment disorder and their families, forgiveness occurs when the individuals are no longer controlled by their negative emotions.
-
-A 4-Stage Process
-This occurs through a four-stage process:
-
-Experience and express anger directly. These feelings need to be dealt with openly and honestly. Suppressing them and remaining angry, consciously or unconsciously, prevents both grieving and forgiveness.
-Genuinely acknowledge and take the time to grieve the loss that is part of your trauma experience.
-Come to terms with or accept the loss without distorted perceptions or unrealistic fantasies. Integrate the losses that were experienced into your life.
-Make the conscious decision to forgive and move toward the future with new personal resources, skills, meanings and positive relationships. 
-By becoming aware of your negative feelings, expressing them openly and honestly and making the conscious decision to forgive, you will be able to move forward, understand the offending person better and feel empathy and compassion for them.
-
-This, however, does not mean that an individual who is not ready to forgive should be pushed or pressured into forgiveness. Forgiveness can only happen if the trauma experience has been fully processed, understood and accepted. Each individual needs to be given the time to go through every stage. Forgiveness also does not mean condoning or forgetting about behavior that was so harmful.
-
-The benefits of forgiveness to our well-being are numerous. Individuals who forgive experience increased hopefulness, improved spiritual connection and increased self-confidence – with corresponding enhancements to physical and mental health, according to the research. Forgiveness is linked to stronger adult romantic relationships and increases in marital satisfaction, emotional closeness and commitment to the relationship. A study of divorced mothers shows that women who forgave their ex-husbands were less anxious and depressed and became better parents than those who could not forgive. Other research shows people who scored high on forgiveness scales had significantly lower levels of blood pressure, anxiety and depression. 
-
-So Make forgiveness part of your healing. You will be healthier and feel better.',
+    description:
+      'Working with a trained therapist or counselor helps war survivors process traumatic memories, develop healthy coping strategies, and regain a sense of safety and self-worth in a structured, supportive environment.',
     bgColor: 'bg-blue-100',
     img: "/resource/resources01.jpg"
   },

@@ -74,6 +74,7 @@ export const {
             session.user.cityName         = token.cityName as string;
             session.user.country          = token.country as string;
             session.user.pinCode          = token.pinCode as string;
+            session.user.bio              = token.bio as string;
 
             session.user.email = token.email as string;
 
@@ -110,6 +111,7 @@ export const {
       token.cityName = existingUser.cityName;
       token.country = existingUser.country;
       token.pinCode = existingUser.pinCode;
+      token.bio     = existingUser.bio;
 
       token.email = existingUser.email;
       token.role = existingUser.role;
