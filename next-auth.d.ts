@@ -18,7 +18,7 @@ export type ExtendedUser = DefaultSession["user"] & {
   role:                     UserRole;
   isTwoFactorEnabled:       boolean;
   isOAuth:                  boolean;
-  
+  bio:                      string;
 
   typeOfIdentificationCard: string;
   identificationCardNumber: string;

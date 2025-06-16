@@ -92,6 +92,9 @@ const Profile = async () => {
         <div className='bg-slate-200 p-4 rounded-xl'>
           {session?.user?.gender}
         </div>
+        <div>
+          {session?.user?.bio}
+        </div>
         <div className="mt-4">
           <SignOut />
         </div>
