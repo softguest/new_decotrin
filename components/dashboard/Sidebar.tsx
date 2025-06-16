@@ -49,7 +49,7 @@ export default function Sidebar() {
           <span>Trauma Coaches</span>
         </Link>
 
-        <Link href="/resources" className="flex items-center space-x-2 hover:text-indigo-600">
+        <Link href="/article" className="flex items-center space-x-2 hover:text-indigo-600">
           <FaBookOpen />
           <span>Articles</span>
         </Link>

@@ -54,8 +54,8 @@ const Profile = async () => {
             <h2 className="text-sm text-gray-600">📞 Telephone</h2>
             <p className="text-[12px] md:text-lg">
               
-              {/* {session?.user?.telephone} */}
-                *************
+              {session?.user?.telePhone}
+                {/* ************* */}
               </p>
           </div>
 
@@ -69,8 +69,8 @@ const Profile = async () => {
           <div className='flex justify-between items-center border-b-4 py-2'>
             <h2 className="text-sm text-gray-600">📧 Email</h2>
             <p className="text-[12px] md:text-lg">
-              {/* {session?.user.email} */}
-                *************
+              {session?.user.email}
+                {/* ************* */}
               </p>
           </div>
           <div className='flex justify-between items-center border-b-4 py-2'>

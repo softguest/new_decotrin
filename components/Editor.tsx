@@ -50,7 +50,7 @@ const Editor: React.FC<EditorProps> = ({ data, onChange }) => {
     }
   }, [data]);
 
-  return <div id={holderId} className="border p-4 rounded min-h-[300px]" />;
+  return <div id={holderId} className="border bg-white p-4 rounded-md min-h-[300px]" />;
 };
 
 export default Editor;

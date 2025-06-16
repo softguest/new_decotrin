@@ -24,29 +24,43 @@ export async function POST(req: NextRequest) {
   let imageUrl = "";
 
   if (file && file.name) {
+    if (!file.type.startsWith("image/")) {
+      return NextResponse.json({ error: "Only image uploads allowed" }, { status: 400 });
+    }
+
     const uploadDir = path.join(process.cwd(), "public", "uploads");
     if (!fs.existsSync(uploadDir)) {
       fs.mkdirSync(uploadDir, { recursive: true });
     }
 
-    const bytes = await file.arrayBuffer();
-    const buffer = Buffer.from(bytes);
-    const fileName = `${uuidv4()}-${file.name}`;
-    const filePath = path.join(uploadDir, fileName);
+    try {
+      const bytes = await file.arrayBuffer();
+      const buffer = Buffer.from(bytes);
 
-    fs.writeFileSync(filePath, buffer);
+      const cleanFileName = file.name.replace(/[^a-zA-Z0-9.-]/g, "_");
+      const fileName = `${uuidv4()}-${cleanFileName}`;
+      const filePath = path.join(uploadDir, fileName);
 
-    imageUrl = `/uploads/${fileName}`;
+      fs.writeFileSync(filePath, buffer);
+      imageUrl = `/uploads/${fileName}`;
+    } catch (err) {
+      return NextResponse.json({ error: "Failed to save file" }, { status: 500 });
+    }
   }
 
-  const post = await db.article.create({
-    data: {
-      title,
-      content, // This should be Lexical serialized JSON
-      image: imageUrl || null,
-      authorId: session.user.id,
-    },
-  });
+  try {
+    const post = await db.article.create({
+      data: {
+        title,
+        content, // Serialized Editor.js or Lexical JSON
+        image: imageUrl || null,
+        authorId: session.user.id,
+      },
+    });
 
-  return NextResponse.json(post, { status: 201 });
+    return NextResponse.json(post, { status: 201 });
+  } catch (err) {
+    console.error("DB Error:", err);
+    return NextResponse.json({ error: "Failed to save article" }, { status: 500 });
+  }
 }
