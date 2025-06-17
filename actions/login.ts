@@ -31,29 +31,12 @@ export const login = async (
     return { error: "Invalid fields!" };
   }
 
-  const { email, password, code, deviceId } = validatedFields.data;
+  const { email, password, code } = validatedFields.data;
 
   const existingUser = await getUserByEmail(email);
 
   if (!existingUser || !existingUser.email || !existingUser.password) {
     return { error: "Email does not exist!" }
-  }
-
-  // if (existingUser.deviceId && existingUser.deviceId !== deviceId) {
-  //   return { error: "Access denied. use thesame browser you registered with." };
-  // }
-
-  if (!existingUser.emailVerified) {
-    const verificationToken = await generateVerificationToken(
-      existingUser.email,
-    );
-
-    await sendVerificationEmail(
-      verificationToken.email,
-      verificationToken.token,
-    );
-
-    return { success: "Your account has been created but still to be activated." };
   }
 
   if (existingUser.isTwoFactorEnabled && existingUser.email) {
@@ -107,22 +90,24 @@ export const login = async (
     }
   }
 
-  try {
-    await signIn("credentials", {
-      email,
-      password,
-      redirectTo: callbackUrl || DEFAULT_LOGIN_REDIRECT,
-    })
-  } catch (error) {
-    if (error instanceof AuthError) {
-      switch (error.type) {
-        case "CredentialsSignin":
-          return { error: "Invalid credentials!" }
-        default:
-          return { error: "Something went wrong!" }
-      }
+try {
+  await signIn("credentials", {
+    email,
+    password,
+    redirectTo: callbackUrl || DEFAULT_LOGIN_REDIRECT,
+  });
+  return { success: "Login successful!" }; // ✅ Add this
+} catch (error) {
+  if (error instanceof AuthError) {
+    switch (error.type) {
+      case "CredentialsSignin":
+        return { error: "Invalid credentials!" };
+      default:
+        return { error: "Something went wrong!" };
     }
-
-    throw error;
   }
+
+  throw error;
+}
+
 };

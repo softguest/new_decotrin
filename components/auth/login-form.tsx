@@ -1,5 +1,4 @@
 "use client";
-import { getDeviceId } from "@/utils/getDeviceId"
 import * as z from "zod";
 import { useForm } from "react-hook-form";
 import { useState, useTransition } from "react";
@@ -22,6 +21,12 @@ import { Button } from "@/components/ui/button";
 import { FormError } from "@/components/form-error";
 import { FormSuccess } from "@/components/form-success";
 import { login } from "@/actions/login";
+
+type LoginResponse =
+  | { success: string }
+  | { error: string }
+  | { twoFactor: boolean };
+
 
 export const LoginForm = () => {
   const searchParams = useSearchParams();
@@ -47,10 +52,8 @@ export const LoginForm = () => {
     setError("");
     setSuccess("");
   
-    const deviceId = await getDeviceId();
-  
     startTransition(() => {
-      login({ ...values, deviceId }, callbackUrl)
+      login({ ...values }, callbackUrl)
         .then((data) => {
           if (data?.error) {
             form.reset();

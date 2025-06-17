@@ -44,7 +44,7 @@ export const RegisterForm = () => {
     const deviceId = await getDeviceId(); 
   
     startTransition(() => {
-      register({ ...values, deviceId })
+      register({ ...values })
         .then((data) => {
           setError(data.error);
           setSuccess(data.success);
