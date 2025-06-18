@@ -58,7 +58,7 @@ export default function WarTraumaSlider() {
             {slides[activeIndex].heading}
           </h2>
           <p className="text-gray-600 mb-4 md:w-[50%]">{slides[activeIndex].description}</p>
-          <Link href="/resources">
+          <Link href="/article">
             <Button>More Details</Button>
           </Link>
         </div>
