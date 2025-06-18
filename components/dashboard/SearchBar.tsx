@@ -89,11 +89,11 @@ const SearchBar: FC<SearchBarProps> = ({}) => {
               {queryResults?.map((user) => (
                 <CommandItem
                   onSelect={(e) => {
-                    router.push(`/user-profile/${e}`)
+                    router.push(`/profile/${e}`)
                     router.refresh()
                   }}
                   key={user.id}
-                  value={user.email as string || user.firstName as string || user.bio as string || user.profession as string}>
+                  value={user.email as string || user.firstName as string || user.lastName as string || user.bio as string || user.profession as string}>
                   {/* <Image src={user.profileImage ?? ""} alt="user's Image" width={30} height={30} className="mr-4 rounded-full" /> */}
                     {user?.profileImage ? (
                       <Image
@@ -112,7 +112,7 @@ const SearchBar: FC<SearchBarProps> = ({}) => {
                           ?.join("")}
                       </div>
                     )}
-                  <a href={`/user-profile/${user.id}`} className=""><span className="text-slate-500">{user.cityName} {user.profession}</span> ... <span className="text-[#faa635]">{user.role}</span></a>
+                  <a href={`/profile/${user.id}`} className=""><span className="text-slate-500">{user.cityName} {user.profession}</span> ... <span className="text-[#faa635]">{user.role}</span></a>
                 </CommandItem>
               ))}
             </CommandGroup>
