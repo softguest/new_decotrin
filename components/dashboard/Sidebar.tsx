@@ -2,10 +2,8 @@
 
 import { useState } from 'react'
 import { Menu, X } from 'lucide-react'
-import Link from 'next/link'
 import { cn } from '@/lib/utils'
-import { FaBookOpen, FaCog, FaCreativeCommons, FaHome, FaRobot, FaUserCircle, FaUserMd } from 'react-icons/fa'
-import SearchBar from './SearchBar'
+import SideMenu from './menu/SideMenu'
 
 export default function Sidebar() {
   const [isOpen, setIsOpen] = useState(false)
@@ -28,41 +26,7 @@ export default function Sidebar() {
           isOpen ? 'translate-x-0' : '-translate-x-full'
         )}
       >
-
-      <nav className="flex flex-col h-full p-4 space-y-6">
-        <h2 className="text-xl text font-bold mb-4">Dashboard</h2>
-        <div className='md:hidden'>
-          <SearchBar />
-        </div>
-        <Link href="/dashboard" className="flex items-center space-x-2 hover:text-indigo-600">
-          <FaHome />
-          <span>Home</span>
-        </Link>
-
-        <Link href="/profile" className="flex items-center space-x-2 hover:text-indigo-600">
-          <FaUserCircle />
-          <span>My Profile</span>
-        </Link>
-
-        <Link href="/dashboard/coaches" className="flex items-center space-x-2 hover:text-indigo-600">
-          <FaUserMd />
-          <span>Trauma Coaches</span>
-        </Link>
-
-        <Link href="/article" className="flex items-center space-x-2 hover:text-indigo-600">
-          <FaBookOpen />
-          <span>Articles</span>
-        </Link>
-
-        <Link href="/dashboard/settings" className="flex items-center space-x-2 text-indigo-600 hover:text-indigo-600">
-          <FaCog />
-          <span>Settings</span>
-        </Link>
-        <Link href="/dashboard/articles/create" className="flex items-center space-x-2 hover:text-indigo-600">
-          <FaCreativeCommons />
-          <span>Create Article</span>
-        </Link>
-      </nav>
+        <SideMenu />
       </aside>
 
       {/* Overlay for mobile */}

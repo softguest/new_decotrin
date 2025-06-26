@@ -43,7 +43,6 @@ model User {
   emailVerified           DateTime?
   password                String?
   role                    UserRole     @default(USER)
-  deviceId                String?
 
   // Identification 
   typeOfIdentificationCard          String?
