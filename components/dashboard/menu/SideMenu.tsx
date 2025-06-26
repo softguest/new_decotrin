@@ -32,7 +32,7 @@ const SideMenu = () => {
             <span>Articles</span>
           </Link>
 
-          <Link href="/dashboard/settings" className="flex items-center space-x-2 text-indigo-600 hover:text-indigo-600">
+          <Link href="/settings" className="flex items-center space-x-2 text-indigo-600 hover:text-indigo-600">
             <FaCog />
             <span>Settings</span>
           </Link>

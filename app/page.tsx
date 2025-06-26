@@ -35,7 +35,7 @@ export default function LoginPage() {
         
         {/* Left Side */}
         <div className="relative bg-gradient-to-b from-blue-700 to-blue-500 p-10 text-white flex flex-col justify-center space-y-6">
-          <h2 className="text-3xl font-bold">WELCOME</h2>
+          <h2 className="text-3xl font-bold">WELCOME BACK</h2>
           <p className="text-sm leading-relaxed">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla accumsan justo ac ex dapibus, vitae fermentum enim porta.
           </p>

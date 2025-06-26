@@ -92,10 +92,10 @@ const SettingsPage = () => {
   }
 
   return ( 
-    <div className="w-full md:px-32">
+    <div className="w-full px-2 md:px-32">
       <Card className="w-full">
         <CardHeader>
-          <p className="text-2xl font-semibold text-center">
+          <p className="md:text-2xl font-semibold text-center">
             ⚙️ Settings.
           </p>
         </CardHeader>

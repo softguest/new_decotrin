@@ -10,7 +10,7 @@ export default async function Navbar() {
   const session = await auth();
 
   return (
-    <header className="sticky top-0 z-10 w-full bg-white shadow-sm px-4 py-3 flex items-center justify-between md:pl-4">
+    <header className="sticky top-0 z-10 w-full bg-white shadow-sm px-4 py-2 flex items-center justify-between md:pl-4">
       <div className="flex items-center space-x-2">
         <Link href="/dashboard">
           <h1 className="text-1xl md:text-3xl md:mr-10 font-semibold">DECO<span className="text-indigo-700">TRIN</span></h1>
