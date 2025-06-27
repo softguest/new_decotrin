@@ -36,17 +36,19 @@ export default function LoginPage() {
         {/* Left Side */}
         <div className="relative bg-gradient-to-b from-blue-700 to-blue-500 p-10 text-white flex flex-col justify-center space-y-6">
           <h2 className="text-3xl font-bold">WELCOME BACK</h2>
+          <p className="font-bold text-1xl">Connect With The Best Solution Providers</p>
           <p className="text-sm leading-relaxed">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla accumsan justo ac ex dapibus, vitae fermentum enim porta.
+              Decotrin connects you with experienced trauma coaches, backed by the power of AI. Whether you`&apos;`re seeking guidance or offering 
+              support, our platform makes personalized healing accessible, private, and effective.
           </p>
 
           {/* Bubbles */}
-          <div className="absolute bottom-[-40px] left-[-40px] w-32 h-32 bg-blue-400 rounded-full opacity-30"></div>
-          <div className="absolute bottom-10 left-10 w-24 h-24 bg-blue-600 rounded-full opacity-50"></div>
+          <div className="absolute bottom-[-40px] left-[-40px] w-32 h-32 bg-blue-400 rounded-full opacity-40"></div>
+          <div className="absolute bottom-10 left-10 w-24 h-24 bg-blue-600 rounded-full opacity-70"></div>
         </div>
 
         {/* Right Side (Form) */}
-        <div className="p-10 flex flex-col justify-center space-y-6">
+        <div className="flex flex-col justify-center items-center py-8">
           {/* {children} */}
           <LoginForm />
         </div>

@@ -58,7 +58,14 @@ export default auth((req) => {
   }
 
   // if (req.nextUrl.pathname.startsWith("/admin")) {
-  //   if (!isLoggedIn ||  !== "ADMIN") {
+  //   if (!isLoggedIn || req.auth?.user?.role !== 'ADMIN') {
+  //     console.log(req.auth?.user?.role)
+  //     return NextResponse.redirect(new URL("/unauthorized", req.url));
+  //   }
+  // }
+
+  // if (req.nextUrl.pathname.startsWith("/dashboard/articles/create")) {
+  //   if (!isLoggedIn || req.auth?.user?.role === "USER") {
   //     return NextResponse.redirect(new URL("/unauthorized", req.url));
   //   }
   // }

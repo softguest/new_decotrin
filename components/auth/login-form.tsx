@@ -22,12 +22,6 @@ import { FormError } from "@/components/form-error";
 import { FormSuccess } from "@/components/form-success";
 import { login } from "@/actions/login";
 
-type LoginResponse =
-  | { success: string }
-  | { error: string }
-  | { twoFactor: boolean };
-
-
 export const LoginForm = () => {
   const searchParams = useSearchParams();
   const callbackUrl = searchParams.get("callbackUrl");

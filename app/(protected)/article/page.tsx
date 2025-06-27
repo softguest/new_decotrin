@@ -55,7 +55,7 @@ const Resources = async() => {
   });
 
     return (
-        <div className='space-y-4 mx-4 xl:mx-24'>
+        <div className='space-y-4 pt-4 mx-4 xl:mx-24'>
             {articles.map((article, idx) => (
                 <Link href={`/article/${article.id}`} className='p-4 bg-white rounded-xl flex'
                 key={idx}

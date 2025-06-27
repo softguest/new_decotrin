@@ -56,7 +56,7 @@ const ExpertList = () => {
   const isDark = theme === "dark";
 
   return (
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 xl:grid-cols-4 gap-4 mt-10 px-2 md:px-16">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 xl:grid-cols-4 gap-4 mt-4 md:mt-10 px-2 md:px-16">
         {users.map((profile, idx) => (
           <Link key={profile.id} href={`/profile/${profile.id}`}>
             <div

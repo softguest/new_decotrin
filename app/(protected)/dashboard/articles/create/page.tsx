@@ -38,7 +38,7 @@ export default function CreateArticle() {
 
   return (
     <div className="mx-4 max-w-4xl my-4">
-      <h1 className="text-2xl font-bold mb-4">Create New Article</h1>
+      <h1 className="md:text-2xl font-bold mb-4">Create New Article</h1>
       <form onSubmit={handleSubmit} className="space-y-4">
         <input
           className="w-full border p-2 rounded"

@@ -9,15 +9,15 @@ interface ProtectedLayoutProps {
 
 const ProtectedLayout = ({ children }: ProtectedLayoutProps) => {
   return ( 
-    <div className="flex flex-col min-h-screen">
-      <Navbar />
-      <div className="flex flex-grow">
-        <Sidebar />
-        <main className="py-4 bg-gray-50 w-full">{children}</main>
-      </div>
-      <Footer />
-      <ChatComponent />
-    </div>
+      <div className="flex flex-col min-h-screen">
+        <Navbar />
+        <div className="flex flex-grow">
+          <Sidebar />
+          <main className="py-4 bg-gray-50 w-full bg-gradient-to-br from-blue-100 via-white to-blue-200 px-4">{children}</main>
+        </div>
+        <Footer />
+        <ChatComponent />
+      </div>    
    );
 }
  

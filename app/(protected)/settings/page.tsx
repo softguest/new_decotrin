@@ -212,7 +212,7 @@ const SettingsPage = () => {
                         <FormControl>
                           <Input
                             {...field}
-                            // placeholder="john.doe@example.com"
+                            placeholder="john.doe@example.com"
                             type="date"
                             disabled={isPending}
                           />

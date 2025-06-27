@@ -16,13 +16,9 @@ const DashBoardPage = async () => {
 
   return (
     <div>
-      <div className="px-4 py-2 bg-slate-50 ">
-
+      <div className="px-2 py-2 ">
         <WarTraumaSlider />
-          {/* {JSON.stringify(session)} */}
         <ExpertList />
-        
-        
       </div>
     </div>
   )
